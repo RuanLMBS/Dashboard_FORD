@@ -1,0 +1,17 @@
+  <form (ngSubmit)="login()" #loginForm="ngForm">
+    <div class="col mb-4 text-center">
+      <h4>Boas Vindas!</h4>
+    </div>
+    <div class="col mb-4" style="width:100%">
+      <input placeholder="Usuário" name="usuario" style="width:92%;border-radius:6px" [(ngModel)]="usuario" #campoUsuario="ngModel" required/>
+      <app-mensagem *ngIf="campoUsuario.invalid && campoUsuario.touched" mensagem="Usuário Obrigatório"></app-mensagem>
+    </div>
+    <div class="col mb-4" style="width:100%">
+      <input type="password" placeholder="Senha" name="senha" style="width:92%;border-radius:6px" [(ngModel)]="senha" #campoSenha="ngModel" required/>
+      <app-mensagem *ngIf="campoSenha.invalid && campoSenha.touched" mensagem="Senha Obrigatória!"></app-mensagem>
+    </div>
+    <div class="col">
+      <button class="btn btn-primary btn-block" type="submit" [disabled]="loginForm.invalid" style="width:92%">Login</button>
+    </div>
+  </form>
+
