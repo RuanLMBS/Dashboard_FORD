@@ -23,6 +23,11 @@ const routes: Routes = [
     path:'dashboard',
     loadChildren:() => import ('./dashboard/dashboard.module').then((m)=>m.DashboardModule),
     canLoad:[GuardaAutenticacaoGuard],
+  },
+  {
+    path: 'novoveiculo',
+    loadChildren:() => import('./novo-veiculo/novo-veiculo.module').then((m)=>m.NovoVeiculoModule),
+    canLoad:[GuardaAutenticacaoGuard],
   }
 ];
 

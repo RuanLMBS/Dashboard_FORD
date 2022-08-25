@@ -34,34 +34,13 @@ export class DashboardComponent implements OnInit,OnDestroy {
    }
 
 
-   es(){
+   mostraImagem(){
     if(this.veiculoSelecionado) {
       this.imagem$=this.veiculoSelecionado.vehicle.toLowerCase();
       this.imagem=`./../../../assets/img/${this.imagem$}.png`
     }
    }
    private subscription: Subscription
-
-   listarTodosProdutos() {
-    console.log(this.veiculos)
-  }
-  printaSelecionado () {
-    console.log(this.veiculoSelecionado)
-  }
-
-  myFunction(event) {
-    let veiculo = event.target.value
-    console.log(veiculo)
-
-  }
-
-  onSelect(): void {
-    console.log("Oi!")
-  }
-
-  testando(){
-    console.log(this.veiculos)
-  }
 
   ngOnInit(): void {
     this.subscription = this.VeiculosService.pegaVeiculo().subscribe((retornoApi)=>this.veiculos=retornoApi.vehicles)

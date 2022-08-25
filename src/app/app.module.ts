@@ -4,13 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NovoVeiculoComponent } from './novo-veiculo/novo-veiculo.component';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -2,9 +2,10 @@
   cursor: pointer;
 }
 
-#userIcon {
+#userIcon,#menuIcon {
   cursor: pointer;
 }
+
 
 #menuLista:hover {
   background-color:rgb(173, 169, 169);

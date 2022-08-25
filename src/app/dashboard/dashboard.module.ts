@@ -9,7 +9,6 @@ import { HomeModule } from '../home/home.module';
 import { CabecalhoModule } from './../componentes/cabecalho/cabecalho.module';
 import { VehicleDataComponent } from './vehicle-data/vehicle-data.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FiltroBuscaPipe } from './filtro-busca.pipe';
 
 
 
@@ -17,7 +16,6 @@ import { FiltroBuscaPipe } from './filtro-busca.pipe';
   declarations: [
     DashboardComponent,
     VehicleDataComponent,
-    FiltroBuscaPipe,
   ],
   imports: [
     CommonModule,

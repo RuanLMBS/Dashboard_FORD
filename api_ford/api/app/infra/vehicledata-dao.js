@@ -15,15 +15,15 @@ class VehicledataDao {
     this._db = db;
   }
 
- 
+
   listAll(value) {
     return new Promise((resolve, reject) => {
       this._db.all(
         `
-              SELECT 
+              SELECT
               vehicledata_id,
-              vehicledata_vin, 
-              vehicledata_odometer, 
+              vehicledata_vin,
+              vehicledata_odometer,
               vehicledata_tirePressure,
               vehicledata_status,
               vehicledata_batteryStatus,
@@ -32,11 +32,11 @@ class VehicledataDao {
               vehicledata_long
                 FROM VEHICLEDATA
                 WHERE vehicledata_vin LIKE $codigo
-			UNION 
-			  SELECT 
+			UNION
+			  SELECT
         vehicledata_id,
-        vehicledata_vin, 
-        vehicledata_odometer, 
+        vehicledata_vin,
+        vehicledata_odometer,
         vehicledata_tirePressure,
         vehicledata_status,
         vehicledata_batteryStatus,
@@ -64,10 +64,10 @@ class VehicledataDao {
     return new Promise((resolve, reject) => {
       this._db.get(
         `
-        SELECT 
+        SELECT
         vehicledata_id,
-        vehicledata_vin, 
-        vehicledata_odometer, 
+        vehicledata_vin,
+        vehicledata_odometer,
         vehicledata_tirePressure,
         vehicledata_status,
         vehicledata_batteryStatus,
@@ -82,13 +82,54 @@ class VehicledataDao {
           console.log(row);
           if (err) {
             console.log(err);
-            return reject("Can`t load vehicle data");
+            return reject("");
           }
-          return resolve(vehicledataConverter(row));
+          //return resolve(vehicledataConverter(row));
+          if(row) resolve(vehicledataConverter(row));
+          resolve(null);
         }
       );
     });
   }
+
+  add(vehicledata) {
+    return new Promise((resolve, reject) => {
+
+        this._db.run ( `
+            INSERT INTO vehicleData (
+                vehicledata_id,
+                vehicledata_vin,
+                vehicledata_odometer,
+                vehicledata_tirePressure,
+                vehicledata_status,
+                vehicledata_batteryStatus,
+                vehicledata_fuelLevel,
+                vehicledata_lat,
+                vehicledata_long
+             ) values ( ?,?,?,?,?,?,?,?,? )
+        `,
+            [
+                vehicledata.id,
+                vehicledata.vin,
+                vehicledata.odometer,
+                vehicledata.tirePressure,
+                vehicledata.status,
+                vehicledata.batteryStatus,
+                vehicledata.fuelLevel,
+                vehicledata.lat,
+                vehicledata.long,
+            ],
+            function (err) {
+                if (err) {
+                    console.log(err);
+                    return reject('Can`t register new vehicleData');
+                }
+                console.log(`Vehicle Data ${vehicledata.vin} registered!`)
+                resolve();
+            });
+    });
+}
+
 }
 
 module.exports = VehicledataDao;

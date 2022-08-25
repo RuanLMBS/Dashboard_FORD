@@ -2,7 +2,7 @@
   <div class="container-fluid">
  <nav class="navbar navbar-light bg-white">
   <a class="navbar-brand">
-    <i class="fa fa-bars mr-2" (click)="menu.abreMenu()"></i>
+    <i class="fa fa-bars mr-2" id="menuIcon" (click)="menu.abreMenu()"></i>
   </a>
     <app-menu #menu>
       <ul class="list-unstyled">
@@ -15,21 +15,18 @@
         <li class="pb-1 pt-2 ps-3" id="menuLista">
           <a style="color:green" routerLink="/dashboard">Dashboard</a>
         </li>
+        <li class="pb-1 pt-2 ps-3" id="menuLista">
+          <a style="color:green" routerLink="/novoveiculo">Cadastrar Veículo</a>
+        </li>
       </ul>
     </app-menu>
-
     <div *ngIf="user$|async as user">
       <i class="fa fa-user-circle mr-1" id="userIcon" (click)="usuariomenu.abreMenu()"></i>
       <app-usuariomenu #usuariomenu>
-      <div class="card">
-        <div class="card-header">
+        <div>
           <p><i class="fa fa-user-circle mr-1"></i>  {{user.name}}</p>
-        </div>
-        <div class="card-body">
           <p id="userIcon" (click)="logout()">Logout</p>
         </div>
-      </div>
-
       </app-usuariomenu>
     </div>
 

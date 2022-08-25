@@ -1,220 +1,7 @@
-<!--<div class="container-fluid">
-  <form>
-  <table class="table">
-    <thead >
-      <tr class="row" style="background-color:rgba(115, 115, 161, 0.397)">
-        <th class="col-md-3">Código-Vin</th>
-        <th class="col-md-2">Odômetro</th>
-        <th class="col-md-3">Nível de Combustível</th>
-        <th class="col-md-2">Status</th>
-        <th class="col-md-1">Lat.</th>
-        <th class="col-md-1">Long.</th>
-      </tr>
-    </thead>
-    <table>
-      <tr class="row">
-        <th class="col-md-3"><input style="width:90%" [(ngModel)]="veiculoSelecionado"></th>
-          <div  *ngFor="let veiculo of veiculos| filtroBusca:veiculoSelecionado;let i=index">
-            <div *ngIf="i<1">
-              <div *ngIf="veiculoSelecionado.length>17">
-              <th class="col-md-2"><p>{{veiculo.odometer}}</p></th>
-              <th class="col-md-3"><p>{{veiculo.fuelLevel}}</p></th>
-              <th class="col-md-2"><p>{{veiculo.status}}</p></th>
-              <th class="col-md-1"><p>{{veiculo.lat}}</p></th>
-              <th class="col-md-1"><p>{{veiculo.long}}</p></th>
-            </div>
-          </div>
-        </div>
-    </tr>
-    </table>
-  </table>
-  <div class="row" style="background-color:rgba(115, 115, 161, 0.397)">
-  </div>
-</form>
-</div>-->
-
-
-
-  <!--<div>
-    <div>
-    <input [(ngModel)]="veiculoSelecionado">
-  </div>-->
-<!--<div *ngFor="let veiculo of veiculos| filtroBusca:veiculoSelecionado;let i=index" class="container-fluid">
-  <div *ngIf="i<1">
-    <table>
-      <tbody>
-      <tr class="row">
-        <th class="col-md-3"><input placeholder="input-teste" [(ngModel)]="veiculoSelecionado"></th>
-           <div *ngIf="veiculoSelecionado.length>17">
-              <th class="col-md-2">{{veiculo.odometer}}</th>
-              <th class="col-md-3">{{veiculo.fuelLevel}}</th>
-              <th class="col-md-2">{{veiculo.status}}</th>
-              <th class="col-md-1">{{veiculo.lat}}</th>
-              <th class="col-md-1">{{veiculo.long}}</th>
-          </div>
-      </tr>
-      </tbody>
-  </table>
-</div>-->
-
-
-<!--<div>
-<input placeholder="input-teste" [(ngModel)]="veiculoSelecionado">
-<div *ngFor="let veiculo of veiculos| filtroBusca:veiculoSelecionado;let i=index" class="container-fluid">
-  <div *ngIf="i<1">
-    <table>
-      <tbody>
-      <tr class="row">
-        <th class="col-md-3"></th>
-           <div *ngIf="veiculoSelecionado.length>17">
-              <th>{{veiculo.vin}}</th>
-              <th class="col-md-2">{{veiculo.odometer}}</th>
-              <th class="col-md-3">{{veiculo.fuelLevel}}</th>
-              <th class="col-md-2">{{veiculo.status}}</th>
-              <th class="col-md-1">{{veiculo.lat}}</th>
-              <th class="col-md-1">{{veiculo.long}}</th>
-          </div>
-      </tr>
-      </tbody>
-  </table>
-</div>
-</div>-->
-
-<!--<div *ngFor="let veiculo of veiculos| filtroBusca:veiculoSelecionado;let i=index" class="container-fluid">
-  <div *ngIf="i<1">-->
-
-<!--<div class="container-fluid fixed-bottom"> ESTE ESTÁ FUNCIONAL
-    <table class="container-fluid">
-          <tr style="background-color:blue">
-            <th class="col-md-3" style="border:solid 1px black"><p style="padding-left:10px;color:white">Código - Vin</p></th>
-            <th class="col-md-1" style="border:solid 1px black"><p style="padding-left:10px;color:white">Odômetro</p></th>
-            <th class="col-md-2" style="border:solid 1px black"><p style="padding-left:10px;color:white">Nível de Combustível</p></th>
-            <th class="col-md-1" style="border:solid 1px black"><p style="padding-left:10px;color:white">Status</p></th>
-            <th class="col-md-2" style="border:solid 1px black"><p style="padding-left:10px;color:white">Lat.</p></th>
-            <th class="col-md-2" style="border:solid 1px black"><p style="padding-left:10px;color:white">Long.</p></th>
-          </tr>
-            <tr>
-              <th class="col-md-3 text-center"><input style="width:70%" placeholder="input-teste" [(ngModel)]="veiculoSelecionado"></th>
-              <th class="col-md-1"><div *ngFor="let veiculo of veiculos| filtroBusca:veiculoSelecionado;let i=index">
-                <div *ngIf="i<1 && veiculoSelecionado?.length>1"><p style="padding-left:10px">{{veiculo.odometer}}</p></div></div></th>
-              <th class="col-md-2"><div  *ngFor="let veiculo of veiculos| filtroBusca:veiculoSelecionado;let i=index">
-                <div *ngIf="i<1 && veiculoSelecionado?.length>1"><p style="padding-left:10px">{{veiculo.fuelLevel}}</p></div></div></th>
-              <th class="col-md-1"><div *ngFor="let veiculo of veiculos| filtroBusca:veiculoSelecionado;let i=index">
-                  <div *ngIf="i<1 && veiculoSelecionado?.length>1"><p style="padding-left:10px">{{veiculo.status}}</p></div></div></th>
-              <th class="col-md-2"><div  *ngFor="let veiculo of veiculos| filtroBusca:veiculoSelecionado;let i=index">
-                  <div *ngIf="i<1 && veiculoSelecionado?.length>1"><p style="padding-left:10px">{{veiculo.lat}}</p></div></div></th>
-              <th class="col-md-2"><div *ngFor="let veiculo of veiculos| filtroBusca:veiculoSelecionado;let i=index">
-                  <div *ngIf="i<1 && veiculoSelecionado?.length>1"><p style="padding-left:10px">{{veiculo.odometer}}</p></div></div></th>
-              </tr>
-      </table>
-    </div>-->
-
-
-    <!--<input [(ngModel)]="selecao" [formControl]="veiculoSelecionado">
-<div *ngIf="veiculos$ | async as veiculos">
-<div *ngFor="let veiculo of veiculos; let i = index">
-  <div *ngIf="i<1">
-    <p>{{veiculo.odometer}}</p>
-    <p>{{veiculo.fuelLevel}}</p>
-    <p>{{veiculo.status}}</p>
-    <p>{{veiculo.lat}}</p>
-    <p>{{veiculo.long}}</p>
-  </div>
-</div>
-</div>-->
-
-
-<!--<table class="container-fluid">
-  <thead>
-    <tr class="row">
-      <td class="col">Código - Vin</td>
-      <td class="col">Odômetro</td>
-      <td class="col">Nível de Combustível</td>
-      <td class="col">Status</td>
-      <td class="col">Lat.</td>
-      <td class="col">Long.</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="col"><input [formControl]="acoesInput"></td>
-      <div *ngIf="veiculos$ | async as veiculos">
-        <div *ngFor="let veiculo of veiculos;let i=index">
-          <div *ngIf="i<1 && acoesInput.value?.length!=0">
-            <td>{{veiculo.odometer}}</td>
-            <td>{{veiculo.fuelLevel}}</td>
-            <td>{{veiculo.status}}</td>
-            <td>{{veiculo.lat}}</td>
-            <td>{{veiculo.long}}</td>
-        </div>
-      </div>
-      </div>
-    </tr>
-  </tbody>
-</table>
-<button (click)="teste()">GET</button>-->
-
-<!--<div class="">
 <div class="container-fluid">
-  <div class="row" style="background:blue">
-    <div class="col-md-3" style="border:solid 1px black"><span style="color:white">Código-Vin</span></div>
-    <div class="col-md-2" style="border:solid 1px black"><span style="color:white">Odômetro</span></div>
-    <div class="col-md-2" style="border:solid 1px black"><span style="color:white">Nível de Combustível</span></div>
-    <div class="col-md-1" style="border:solid 1px black"><span style="color:white">Status</span></div>
-    <div class="col-md-2" style="border:solid 1px black"><span style="color:white">Lat.</span></div>
-    <div class="col-md-2" style="border:solid 1px black"><span style="color:white">Long.</span></div>
-  </div>
-</div>
-<div class="container-fluid"  style="height:6vh">
-    <div><input style="width: 16%;margin-top:0.3%"  maxlength="20" [formControl]="acoesInput"></div>
-    <div *ngIf="veiculos$ |async as veiculos">
-      <div class="row justify-content-end" style="position:relative;bottom:30px" *ngFor="let veiculo of veiculos;let i=index">
-        <div class="col-md-2"><span *ngIf="i<1 && acoesInput.value?.length>=veiculo.vin.length && acoesInput.value==veiculo.vin">{{veiculo.odometer}}</span></div>
-        <div class="col-md-2"><span *ngIf="i<1 && acoesInput.value?.length>=veiculo.vin.length && acoesInput.value==veiculo.vin">{{veiculo.fuelLevel}}</span></div>
-        <div class="col-md-1"><span *ngIf="i<1 && acoesInput.value?.length>=veiculo.vin.length && acoesInput.value==veiculo.vin">{{veiculo.status}}</span></div>
-        <div class="col-md-2"><span *ngIf="i<1 && acoesInput.value?.length>=veiculo.vin.length && acoesInput.value==veiculo.vin">{{veiculo.lat}}</span></div>
-        <div class="col-md-2"><span *ngIf="i<1 && acoesInput.value?.length>=veiculo.vin.length && acoesInput.value==veiculo.vin">{{veiculo.long}}</span></div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container-fluid" style="height:3vh;background-color: blue;">
-</div>-->
-<!--<div class="container-fluid">
-<table style="width:100%">
-  <thead>
-   <tr class="row" style="background-color:#1b357e">
-      <th class="col-12 col-md-3" style="border:solid 1px black;color:white">Código - Vin</th>
-      <th class="col-12 col-md-2" style="border:solid 1px black;color:white">Odômetro</th>
-      <th class="col-12 col-md-2" style="border:solid 1px black;color:white">Nível de Combustível</th>
-      <th class="col-12 col-md-1" style="border:solid 1px black;color:white">Status</th>
-      <th class="col-12 col-md-2" style="border:solid 1px black;color:white">Lat.</th>
-      <th class="col-12 col-md-2" style="border:solid 1px black;color:white">Long.</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="row" style="height:6vh">
-      <td class="col-12 col-md-3"><input maxlength="20" style="margin-top:1%" [formControl]="acoesInput"></td>
-      <ng-container *ngIf="veiculos$|async as veiculos">
-        <ng-container *ngFor="let veiculo of veiculos; let i = index">
-            <td class="col-12 col-md-2"><span *ngIf="i<1 && acoesInput.value?.length>=veiculo.vin.length && acoesInput.value==veiculo.vin">{{veiculo.odometer}}</span></td>
-            <td class="col-12 col-md-2"><span *ngIf="i<1 && acoesInput.value?.length>=veiculo.vin.length && acoesInput.value==veiculo.vin">{{veiculo.fuelLevel}}</span></td>
-            <td class="col-12 col-md-1"><span *ngIf="i<1 && acoesInput.value?.length>=veiculo.vin.length && acoesInput.value==veiculo.vin">{{veiculo.status}}</span></td>
-            <td class="col-12 col-md-2"><span *ngIf="i<1 && acoesInput.value?.length>=veiculo.vin.length && acoesInput.value==veiculo.vin">{{veiculo.lat}}</span></td>
-            <td class="col-12 col-md-2"><span *ngIf="i<1 && acoesInput.value?.length>=veiculo.vin.length && acoesInput.value==veiculo.vin">{{veiculo.long}}</span></td>
-        </ng-container>
-      </ng-container>
-    </tr>
-  </tbody>
-  <tfoot style="width:100%">
-    <div class="row" style="height:3vh;background-color:#1b357e"></div>
-  </tfoot>
-</table>
-</div>-->
-
-<div class="container-fluid">
+<div class="row table-responsive">
   <table class="table" style="width:100%">
-    <tr class="row">
+    <tr >
       <td id="trsTabela" class="col col-md-3"><span style="color:white">Código - Vin</span></td>
       <td id="trsTabela" class="col col-md-2"><span style="color:white">Odometer</span></td>
       <td id="trsTabela" class="col col-md-2"><span style="color:white">Nível de Combustível</span></td>
@@ -222,12 +9,12 @@
       <td id="trsTabela" class="col col-md-2"><span style="color:white">Lat.</span></td>
       <td id="trsTabela" class="col col-md-2"><span style="color:white">Long.</span></td>
     </tr>
-    <tr class="row">
-      <td class="col-sm-1 col-md-3"><input maxlength="20" style="height:5vh;margin-top:2%" [formControl]="acoesInput"></td>
+    <tr>
+      <td class="col col-md-3"><input maxlength="20" style="height:5vh;margin-top:2%" [formControl]="acoesInput"></td>
       <ng-container *ngIf="veiculos$|async as veiculos">
         <ng-container *ngFor="let veiculo of veiculos; let i = index">
-        <ng-container *ngIf="i<1 && acoesInput.value?.length>=veiculo.vin.length && acoesInput.value==veiculo.vin">
-          <td class="col col-md-2">{{veiculo.odometer}}</td>
+        <ng-container *ngIf="i<1 && acoesInput.value==veiculo.vin">
+          <td class="col-12 col-md-2">{{veiculo.odometer}}</td>
           <td class="col col-md-2">{{veiculo.fuelLevel}}</td>
           <td class="col col-md-1">{{veiculo.status}}</td>
           <td class="col col-md-2">{{veiculo.lat}}</td>
@@ -238,8 +25,7 @@
     </tr>
   </table>
 </div>
+</div>
 <div class="container-fluid">
   <div class="row" style="height:3vh;background-color:#1b357e"></div>
 </div>
-
-

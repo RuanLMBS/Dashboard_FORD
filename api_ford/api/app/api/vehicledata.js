@@ -1,4 +1,4 @@
-const { VehicledataDao } = require("../infra");
+const { VehicledataDao, VehicleDao } = require("../infra");
 
 const api = {};
 
@@ -17,6 +17,30 @@ api.findById = async (req, res) => {
   console.log("####################################");
   console.log(`find vehicle data by ID ${vehicledataID}`);
   const vehicledata = await new VehicledataDao(req.db).findById(vehicledataID);
+  if (vehicledata) {
+    res.json(vehicledata);
+  } else {
+    res.status(404).json({ message: "vehicle data does not exist" });
+  }
+};
+
+api.register = async (req, res) => {
+  const vehicledata = req.body;
+  const vehicledataID = await new VehicledataDao(req.db).add(vehicledata);
+  res.status(204).end();
+};
+
+api.checkIdTaken = async (req, res) => {
+  const { id } = req.params;
+  const vehicledata = await new VehicledataDao(req.db).findById(id);
+  res.json(!!vehicledata);
+};
+
+api.findByVin = async (req, res) => {
+  const { vehicledataVIN } = req.params;
+  console.log("####################################");
+  console.log(`find vehicle data by VIN ${vehicledataVIN}`);
+  const vehicledata = await new VehicledataDao(req.db).findByVin(vehicledataVIN);
   if (vehicledata) {
     res.json(vehicledata);
   } else {
