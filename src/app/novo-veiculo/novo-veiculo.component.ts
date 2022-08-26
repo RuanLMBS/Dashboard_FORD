@@ -20,12 +20,24 @@ export class NovoVeiculoComponent implements OnInit {
     private router:Router,
     ) { }
 
+  apenasNumeros (event) {
+    var charCode = (event.which) ? event.which : event.keyCode;
+    // Only Numbers 0-9
+    if ((charCode < 48 || charCode > 57)) {
+      event.preventDefault();
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   ngOnInit(): void {
     this.novoVeiculoForm = this.formBuilder.group({
       id:['',
       [Validators.required],
       [this.VeiculoIdExiste.veiculoIdJaExiste()]],
-      vin:['',[Validators.required, Validators.minLength(20)]],
+      vin:['',[Validators.required,
+       Validators.minLength(20)]],
       odometer:['',[Validators.required]],
       tirePressure:['',[Validators.required]],
       status:['',[Validators.required]],

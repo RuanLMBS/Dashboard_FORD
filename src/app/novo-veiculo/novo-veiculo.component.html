@@ -2,16 +2,16 @@
 <h4 class="text-center">Cadastre um novo veículo!</h4>
 <form class="container text-center" style="width:50%" #veiculoForm="ngForm" [formGroup]="novoVeiculoForm" (submit)="cadastrar()">
   <div class="form-group">
-    <input placeholder="Id" class="form-control mt-4" formControlName="id"/>
+    <input placeholder="Id" class="form-control mt-4" formControlName="id" (keypress)="apenasNumeros($event)"/>
     <app-mensagem *ngIf="novoVeiculoForm.get('id')?.errors?.['required'] && novoVeiculoForm.get('id')?.touched" mensagem="ID Obrigatório!"></app-mensagem>
     <app-mensagem *ngIf="novoVeiculoForm.get('id')?.errors?.['idExistente']" mensagem="ID Já Existe!"></app-mensagem>
   </div>
   <div class="form-group">
-    <input placeholder="Vin *Min. 20 caracteres*" maxlength="20" class="form-control mt-4" formControlName="vin">
+    <input placeholder="Vin *Min. 20 caracteres*" maxlength="20" class="form-control mt-4" formControlName="vin" >
     <app-mensagem *ngIf="novoVeiculoForm.get('vin')?.errors?.['required'] && novoVeiculoForm.get('vin')?.touched" mensagem="VIN Inválido!"></app-mensagem>
   </div>
   <div class="form-group">
-    <input placeholder="Odometer" class="form-control mt-4" formControlName="odometer">
+    <input placeholder="Odometer" class="form-control mt-4" formControlName="odometer" (keypress)="apenasNumeros($event)">
     <app-mensagem *ngIf="novoVeiculoForm.get('odometer')?.errors?.['required'] && novoVeiculoForm.get('odometer')?.touched" mensagem="Odometer Inválido!"></app-mensagem>
   </div>
   <div class="form-group">
@@ -27,15 +27,15 @@
     <app-mensagem *ngIf="novoVeiculoForm.get('batteryStatus')?.errors?.['required'] && novoVeiculoForm.get('batteryStatus')?.touched" mensagem="Battery Status inválido!"></app-mensagem>
   </div>
   <div class="form-group">
-    <input placeholder="Fuel Level" class="form-control mt-4" formControlName="fuelLevel">
+    <input placeholder="Fuel Level" class="form-control mt-4" formControlName="fuelLevel" (keypress)="apenasNumeros($event)">
     <app-mensagem *ngIf="novoVeiculoForm.get('fuelLevel')?.errors?.['required'] && novoVeiculoForm.get('fuelLevel')?.touched" mensagem="Nível de Combustível Inválido!"></app-mensagem>
   </div>
   <div class="form-group">
-    <input placeholder="Lat." class="form-control mt-4" formControlName="lat">
+    <input placeholder="Lat." class="form-control mt-4" formControlName="lat" (keypress)="apenasNumeros($event)">
     <app-mensagem *ngIf="novoVeiculoForm.get('lat')?.errors?.['required'] && novoVeiculoForm.get('lat')?.touched" mensagem="Lat. Inválido!"></app-mensagem>
   </div>
   <div class="form-group">
-    <input placeholder="Long." class="form-control mt-4" formControlName="long">
+    <input placeholder="Long." class="form-control mt-4" formControlName="long" (keypress)="apenasNumeros($event)">
     <app-mensagem *ngIf="novoVeiculoForm.get('long')?.errors?.['required'] && novoVeiculoForm.get('long')?.touched" mensagem="Long. Inválido!"></app-mensagem>
   </div>
 <button class="btn btn-primary btn-block mt-2" [disabled]="veiculoForm.invalid">Cadastrar</button>
